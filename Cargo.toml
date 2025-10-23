@@ -1,0 +1,17 @@
+[package]
+name = "wdi-rs"
+version = "0.1.0"
+edition = "2024"
+authors = ["Piers Finlayson <piers@piers.rocks>"]
+license = "MIT or Apache-2.0"
+description = "Simple API to libwdi to install Windows device drivers"
+repository = "https://github.com/piersfinlayson/wdi-rs"
+keywords = ["windows", "driver", "installation", "libwdi", "usb"]
+categories = ["os::windows-apis", "hardware-support", "api-bindings"]
+
+[dependencies]
+log = "0.4"
+tempfile = "3.23"
+
+[dev-dependencies]
+env_logger = "0.10"
