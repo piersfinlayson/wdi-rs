@@ -327,13 +327,21 @@
 //! - [rusb](https://crates.io/crates/rusb) - USB library for Rust
 //! - [nusb](https://crates.io/crates/nusb) - Modern USB library for Rust
 
+#[cfg(any(target_os = "windows", doc))]
 mod ffi;
+#[cfg(any(target_os = "windows", doc))]
 mod installer;
+#[cfg(any(target_os = "windows", doc))]
 mod wdi;
 
+#[cfg(any(target_os = "windows", doc))]
 pub use installer::{DriverInstaller, DeviceSelector, InfSource, InstallOptions};
+#[cfg(any(target_os = "windows", doc))]
 pub use wdi::{
     create_list, prepare_driver, install_driver,
     CreateListOptions, Device, DeviceList, PrepareDriverOptions, InstallDriverOptions,
     DriverType, Error, set_log_level,
 };
+
+#[cfg(all(not(target_os = "windows"), not(doc)))]
+compile_error!("This crate only supports Windows");
